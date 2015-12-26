@@ -213,10 +213,9 @@
     
     for ( NSDictionary * machineStatus in machineStatuses ) {
         NSString * idToDisplay = [self willDisplayPath] ? [self getShortenedPath:machineStatus[ @"path" ]] : machineStatus[ @"id" ];
-        NSString * title = [NSString stringWithFormat:@"%@ (%@): %@",
+        NSString * title = [NSString stringWithFormat:@"%@ [%@]",
                             machineStatus[ @"name" ],
-                            idToDisplay,
-                            machineStatus[ @"state" ]
+                            machineStatus[ @"provider" ]
                             ];
         NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
         
@@ -816,10 +815,9 @@
           
             NSString * idToDisplay = [self willDisplayPath] ? [self getShortenedPath:machineStatus[ @"vagrantfile_path" ]] : [machineId substringToIndex:7];
           
-            NSString * title = [NSString stringWithFormat:@"%@ (%@): %@",
+            NSString * title = [NSString stringWithFormat:@"%@ [%@]",
                                 machineStatus[ @"name" ],
-                                idToDisplay,
-                                machineStatus[ @"state" ]
+                                machineStatus[ @"provider" ]
                                 ];
             NSMenuItem * item = [[NSMenuItem alloc] initWithTitle:title action:@selector(machineAction:) keyEquivalent:@""];
             
